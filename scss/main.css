@@ -12074,4 +12074,29 @@ p {
   left: 50%;
   transform: translate(-50%, -10%);
   transition: all 0.5s;
+}
+
+.carte {
+  position: relative;
+}
+.carte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/boissons.jpg");
+  background-size: cover;
+  filter: brightness(30%);
+}
+.carte * {
+  position: relative;
+}
+.carte .carte-content {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */
