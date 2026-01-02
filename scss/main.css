@@ -11986,7 +11986,7 @@ html {
 }
 
 main {
-  margin-bottom: 219px;
+  margin-bottom: 280px;
 }
 
 footer.footer {
@@ -12003,6 +12003,7 @@ p {
 
 .plat1 {
   position: relative;
+  margin-bottom: 15px;
 }
 .plat1::before {
   content: "";
@@ -12049,6 +12050,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .text-justify {
@@ -12058,7 +12060,8 @@ p {
 .image-card {
   position: relative;
 }
-.image-card:hover .titre-image {
+.image-card:hover .titre-image,
+.image-card:hover .action-image-buttons {
   opacity: 1;
 }
 .image-card:hover img {
@@ -12073,6 +12076,19 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -10%);
+  transition: all 0.5s;
+}
+.image-card .action-image-buttons {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  padding-top: 30px;
+  padding-right: 6px;
+  display: flex;
+  justify-content: space-between;
   transition: all 0.5s;
 }
 
@@ -12099,4 +12115,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.carte .form-label {
+  color: #906427;
 }/*# sourceMappingURL=main.css.map */
