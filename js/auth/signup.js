@@ -6,7 +6,7 @@ const inputMail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidationPassword = document.getElementById("ValidatePasswordInput");
 const btnValidation = document.getElementById("btn-validation-inscription");
-
+const formInscripton = document.getElementById("formulaireInscription");
 
 
 inputNom.addEventListener("keyup", validateForm);
@@ -14,6 +14,8 @@ inputPrenom.addEventListener("keyup", validateForm);
 inputMail.addEventListener("keyup", validateForm);
 inputPassword.addEventListener("keyup", validateForm);
 inputValidationPassword.addEventListener("keyup", validateForm);
+
+btnValidation.addEventListener("click", inscrireUtilisateur);
 
 //Fonction permettant de valider tout le formulaire
 function validateForm() {
@@ -87,4 +89,41 @@ function validateRequired(input){
         input.classList.add("is-invalid");
         return false;
     }
+}
+
+function inscrireUtilisateur(){
+    let dataForm = new FormData(formInscripton);
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "firstName": dataForm.get("prenom"),
+        "lastName": dataForm.get("nom"),
+        "email": dataForm.get("email"),
+        "password": dataForm.get("mdp")
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch(apiUrl + "registration", requestOptions)
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                alert("Erreur lors de l'inscription. Veuillez réessayer.");                
+            }
+        })
+        .then((result) => {
+            alert("Bravo "+dataForm.get("prenom")+", votre compte a été créé avec succès. Vous allez être redirigé vers la page de connexion.");
+            document.location.href = "/signin";
+            console.log(result);
+        })
+        .catch((error) => console.error(error));
 }
