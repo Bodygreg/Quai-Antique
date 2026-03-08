@@ -15,7 +15,8 @@ jobs:
         username: bodygreg
         password: ${{ secrets.ftp_password }}
         protocol: ftps
-        security: strict
+        security: loose
+        timeout: 60000
         port: 21
         server-dir: /www/
         exclude: |
