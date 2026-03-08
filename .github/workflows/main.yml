@@ -14,7 +14,8 @@ jobs:
         server: ftp-bodygreg.alwaysdata.net
         username: bodygreg
         password: ${{ secrets.ftp_password }}
-        security: ftps
+        secure: true
+        security: strict
         server-dir: /www/
         exclude: |
           **/.git*
