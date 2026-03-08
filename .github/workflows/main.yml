@@ -15,6 +15,7 @@ jobs:
         username: bodygreg
         password: ${{ secrets.ftp_password }}
         secure: true
+        secure-options: "unauthorized"
         server-dir: /www/
         exclude: |
           **/.git*
